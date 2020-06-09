@@ -62,6 +62,7 @@ namespace GRUD.Database
             {
                 contact.FirstName = updatedContact.FirstName;
                 contact.LastName = updatedContact.LastName;
+                contact.DateOfBirth = updatedContact.DateOfBirth;
                 contact.Email = updatedContact.Email;
                 contact.PhoneNumber = updatedContact.PhoneNumber;
                 contact.Adress = updatedContact.Adress;
