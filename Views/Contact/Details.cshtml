@@ -1,0 +1,34 @@
+﻿@model GRUD.Models.ContactDetailViewModel
+
+<label>Vooraam</label>
+<p><strong>@Model.FirstName</strong></p>
+
+<label>Famillienaam</label>
+<p><strong>@Model.LastName</strong></p>
+
+<label>Leeftijd</label>
+<p><strong>@ageCalculator(Model.DateOfBirth)</strong></p>
+
+<label>Email adres</label>
+<p><strong>@Model.Email</strong></p>
+
+<label>Telefoon nummer</label>
+<p><strong>@Model.PhoneNumber</strong></p>
+
+<label>Adres</label>
+<p><strong>@Model.Adress</strong></p>
+
+<label>Beschrijving</label>
+<p><strong>@Model.Description</strong></p>
+
+
+@functions{
+    string ageCalculator(DateTime DateOfBirth) {
+
+        int age = DateTime.Today.Year - DateOfBirth.Year;
+
+        if (DateOfBirth.Date > DateTime.Today.AddYears(-age)) age--;
+        return age.ToString();
+
+    }
+}

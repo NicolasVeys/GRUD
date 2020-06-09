@@ -1,0 +1,19 @@
+﻿@model IEnumerable<GRUD.Models.ContactListViewModel>
+
+<table>
+    <thead>
+        <tr>
+            <th>Naam</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.FirstName @contact.LastName <strong>Tel: @contact.PhoneNumber </strong><a asp-controller="contact" asp-action="details" asp-route-id="@contact.Id">Details</a> | <a asp-controller="contact" asp-action="edit" asp-route-id="@contact.Id">Aanpassen</a></td>
+                <td>
+            </tr>
+        }
+    </tbody>
+</table>
+
