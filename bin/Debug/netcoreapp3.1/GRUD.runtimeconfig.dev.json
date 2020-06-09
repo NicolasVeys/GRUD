@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Ginger\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Ginger\\.nuget\\packages"
+    ]
+  }
+}
