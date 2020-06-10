@@ -68,6 +68,10 @@ namespace GRUD.Database
                 contact.Adress = updatedContact.Adress;
                 contact.Description = updatedContact.Description;
             }
+            if (updatedContact.ImageName != null)
+            {
+                contact.ImageName = updatedContact.ImageName;
+            }
         }
     }
 }

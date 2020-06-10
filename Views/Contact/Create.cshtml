@@ -36,5 +36,10 @@
         <input class="form-control" asp-for="Description" />
         <span class="text-danger" asp-validation-for="Description"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="ImageName"></label>
+        <input class="form-control" asp-for="ImageName" type="file" name="pic" accept="image/*"/>
+        <span class="text-danger" asp-validation-for="ImageName"></span>
+    </div>
     <button class="btn btn-primary" type="submit">Create Contact</button>
 </form>

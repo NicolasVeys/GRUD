@@ -10,7 +10,14 @@
         @foreach (var contact in Model)
         {
             <tr>
-                <td>@contact.FirstName @contact.LastName <strong>Tel: @contact.PhoneNumber </strong><a asp-controller="contact" asp-action="details" asp-route-id="@contact.Id">Details</a> | <a asp-controller="contact" asp-action="edit" asp-route-id="@contact.Id">Aanpassen</a></td>
+                <td>
+
+                    @contact.FirstName @contact.LastName <strong>Tel: @contact.PhoneNumber </strong>
+                    <a asp-controller="contact" asp-action="details" asp-route-id="@contact.Id">Details</a> | 
+                    <a asp-controller="contact" asp-action="Delete" asp-route-id="@contact.Id">Verwijderen</a>
+
+
+                </td>
                 <td>
             </tr>
         }

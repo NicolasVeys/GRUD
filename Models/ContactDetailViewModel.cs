@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,5 +16,6 @@ namespace GRUD.Models
         public int PhoneNumber { get; set; }
         public string Adress { get; set; }
         public string Description { get; set; }
+        public IFormFile ImageName { get; set; }
     }
 }

@@ -1,0 +1,9 @@
+﻿@model GRUD.Models.ContactDeleteViewModel
+
+
+<form asp-controller="contact" asp-action="ConfirmDelete" asp-route-id="@Model.Id" method="post">
+    Weet je zekerdat je <strong>@Model.FirstName @Model.LastName</strong> wil verwijderen?
+    <button class="btn btn-danger" type="submit">Delete Movie</button>
+</form>
+<button class="btn btn-primary" type="submit"><a class="text-white" asp-controller="contact" asp-action="">Cancel</a></button>
+

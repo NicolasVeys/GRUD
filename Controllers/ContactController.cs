@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Http;
 
 namespace GRUD.Controllers
 {
@@ -59,6 +62,16 @@ namespace GRUD.Controllers
             {
                 return View(newContact);
             }
+            byte[] file;
+
+            if (newContact.ImageName != null)
+            {
+                file = GetBytesFromFile(newContact.ImageName);
+            }
+            else
+            {
+                file = new byte[] { };
+            }
             _contactDatabase.Insert(new Contact
             {
                 FirstName = newContact.FirstName,
@@ -67,10 +80,15 @@ namespace GRUD.Controllers
                 Email = newContact.Email,
                 PhoneNumber = newContact.PhoneNumber,
                 Adress = newContact.Adress,
-                Description = newContact.Description
+                Description = newContact.Description,
+                ImageName = file
             });
+
+
+
             return RedirectToAction("index");
         }
+
 
         public IActionResult Details(int id)
         {
@@ -127,7 +145,40 @@ namespace GRUD.Controllers
 
             return RedirectToAction("details", new { Id = id });
         }
+        public IActionResult Delete(int id)
+        {
+            Contact contactFromDb = _contactDatabase.GetContacts(id);
+            ContactDeleteViewModel contact = new ContactDeleteViewModel()
+            {
+                Id = id,
+                FirstName = contactFromDb.FirstName,
+                LastName = contactFromDb.LastName
+            };
+            return View(contact);
+        }
 
+        [HttpPost]
+        public IActionResult ConfirmDelete(int id)
+        {
+            _contactDatabase.Delete(id);
+            return RedirectToAction("");
+        }
+
+        public Byte[] GetBytesFromFile(IFormFile file)
+        {
+            var extension = new FileInfo(file.FileName).Extension;
+            if (extension == ".jpg" || extension == ".png" || extension == ".PNG")
+            {
+                using var memoryStream = new MemoryStream();
+                file.CopyTo(memoryStream);
+
+                return memoryStream.ToArray();
+            }
+            else
+            {
+                return new byte[] { };
+            }
+        }
     }
 }
 
