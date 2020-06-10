@@ -62,6 +62,7 @@ namespace GRUD.Controllers
             {
                 return View(newContact);
             }
+
             byte[] file;
 
             if (newContact.ImageName != null)
@@ -101,7 +102,8 @@ namespace GRUD.Controllers
                 Email = contactFromDb.Email,
                 PhoneNumber = contactFromDb.PhoneNumber,
                 Adress = contactFromDb.Adress,
-                Description = contactFromDb.Description
+                Description = contactFromDb.Description,
+                ImageName = contactFromDb.ImageName
             };
             return View(contact);
         }

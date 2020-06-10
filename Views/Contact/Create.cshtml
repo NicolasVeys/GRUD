@@ -1,6 +1,6 @@
 ﻿@model GRUD.Models.ContactCreateViewModel
 
-<form asp-controller="Contact" asp-action="Create" method="post">
+<form asp-controller="Contact" asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="FirstName"></label>
         <input class="form-control" asp-for="FirstName" />
@@ -37,9 +37,15 @@
         <span class="text-danger" asp-validation-for="Description"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ImageName"></label>
-        <input class="form-control" asp-for="ImageName" type="file" name="pic" accept="image/*"/>
-        <span class="text-danger" asp-validation-for="ImageName"></span>
+        <dl>
+            <dt>
+                <label asp-for="ImageName"></label>
+            </dt>
+            <dd>
+                <input asp-for="ImageName" type="file">
+                <span  asp-validation-for="ImageName"></span>
+            </dd>
+        </dl>
     </div>
     <button class="btn btn-primary" type="submit">Create Contact</button>
 </form>

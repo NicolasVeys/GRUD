@@ -22,16 +22,22 @@
 <p><strong>@Model.Description</strong></p>
 
 <label>Foto</label>
-<p><img src="../wwwroot/@Model.ImageName" alt="Alternate Text" /></p>
+<img src="@ConvertBytesToImg(Model.ImageName)" style="display:block" />
 
 
 @functions{
-    string ageCalculator(DateTime DateOfBirth) {
-
+    string ageCalculator(DateTime DateOfBirth)
+    {
         int age = DateTime.Today.Year - DateOfBirth.Year;
 
         if (DateOfBirth.Date > DateTime.Today.AddYears(-age)) age--;
         return age.ToString();
+    }
 
+    string ConvertBytesToImg(Byte[] image)
+    {
+        string imreBase64Data = Convert.ToBase64String(image);
+
+        return $"data:image/png;base64,{imreBase64Data}";
     }
 }

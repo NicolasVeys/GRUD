@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -39,6 +40,9 @@ namespace GRUD.Models
 
         [MaxLength(250, ErrorMessage = "Maximum 250 karakters")]
         public string Description { get; set; }
+
+        public IFormFile ImageName { get; set; }
+
     }
 
 }

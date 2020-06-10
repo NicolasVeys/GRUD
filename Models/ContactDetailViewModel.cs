@@ -16,6 +16,6 @@ namespace GRUD.Models
         public int PhoneNumber { get; set; }
         public string Adress { get; set; }
         public string Description { get; set; }
-        public IFormFile ImageName { get; set; }
+        public byte[] ImageName { get; set; }
     }
 }
