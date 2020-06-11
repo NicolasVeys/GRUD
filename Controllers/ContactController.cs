@@ -82,6 +82,7 @@ namespace GRUD.Controllers
                 PhoneNumber = newContact.PhoneNumber,
                 Adress = newContact.Adress,
                 Description = newContact.Description,
+                Category = newContact.Category,
                 ImageName = file
             });
 
@@ -103,7 +104,8 @@ namespace GRUD.Controllers
                 PhoneNumber = contactFromDb.PhoneNumber,
                 Adress = contactFromDb.Adress,
                 Description = contactFromDb.Description,
-                ImageName = contactFromDb.ImageName
+                ImageName = contactFromDb.ImageName,
+                Category = contactFromDb.Category
             };
             return View(contact);
         }

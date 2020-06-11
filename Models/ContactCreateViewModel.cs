@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,16 @@ namespace GRUD.Models
         public string Description { get; set; }
 
         public IFormFile ImageName { get; set; }
+
+        [DisplayName("Category")]
+        public string Category { get; set; }
+
+        public IEnumerable<SelectListItem> Categories { get; set; } = new List<SelectListItem>()
+        {
+            new SelectListItem(){Text = "Familie", Value = "Familie"},
+            new SelectListItem(){Text = "Collega", Value = "Collega"},
+            new SelectListItem(){Text = "Vriend", Value = "Vriend"},
+        };
     }
 
 }

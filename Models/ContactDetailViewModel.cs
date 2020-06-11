@@ -17,5 +17,6 @@ namespace GRUD.Models
         public string Adress { get; set; }
         public string Description { get; set; }
         public byte[] ImageName { get; set; }
+        public string Category { get; set; }
     }
 }
