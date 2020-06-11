@@ -121,7 +121,8 @@ namespace GRUD.Controllers
                 Email = contactFromDb.Email,
                 PhoneNumber = contactFromDb.PhoneNumber,
                 Adress = contactFromDb.Adress,
-                Description = contactFromDb.Description
+                Description = contactFromDb.Description,
+                Category = contactFromDb.Category
             };
             return View(vm);
         }
@@ -143,7 +144,8 @@ namespace GRUD.Controllers
                 Email = vm.Email,
                 PhoneNumber = vm.PhoneNumber,
                 Adress = vm.Adress,
-                Description = vm.Description
+                Description = vm.Description,
+                Category = vm.Category
             };
             _contactDatabase.Update(id, domainContact);
 

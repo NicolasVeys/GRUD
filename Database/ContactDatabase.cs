@@ -67,6 +67,7 @@ namespace GRUD.Database
                 contact.PhoneNumber = updatedContact.PhoneNumber;
                 contact.Adress = updatedContact.Adress;
                 contact.Description = updatedContact.Description;
+                contact.Category = updatedContact.Category;
             }
             if (updatedContact.ImageName != null)
             {
